@@ -1,0 +1,26 @@
+Instalar OpenCV:
+
+pip install opencv-python
+
+Ejemplos de uso de OpenCV:
+https://realpython.com/face-recognition-with-python/   //De una imagen, el ejemplo está en carpeta Face-DetectMaster
+https://realpython.com/face-detection-in-python-using-a-webcam/
+
+Installar Anaconda para instalar dlib (Creo que sólo en Windows, en Linux es más fácil instalar dlib):
+
+una vez instalado anaconda instalar dlib (creando previamente un virtual environment e instalando ahí dlib con el siguiente comando):
+conda install -c conda-forge dlib
+
+para usar dlib en python se tiene que llamar a este virtual environment con:
+conta activate virenv   //virenv es el nombre del virtual environment
+y después ejecutar el código, aquí ya se puede importar dlib
+video: https://www.youtube.com/watch?v=xXbouOlAyoo&ab_channel=packetcode 
+
+luego instalar face_recognition:
+pip install face_recognition
+
+repositorio de face_recognition:
+https://github.com/ageitgey/face_recognition
+
+Una guía muy buena y sencilla: 
+https://www.mygreatlearning.com/blog/face-recognition/

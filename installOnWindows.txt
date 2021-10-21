@@ -1,0 +1,31 @@
+Required installation and dependencies for usage in Windows:
+
+Of course you need python
+
+1. Install OpenCV:
+
+        pip install opencv-python
+
+    Examples of OpenCV for face detection:
+        https://realpython.com/face-recognition-with-python/ 
+        https://realpython.com/face-detection-in-python-using-a-webcam/
+
+2. Install Anaconda in order to install dlib (You don't need Anaconda to get dlib on linux):
+        https://www.anaconda.com/products/individual
+
+3. Now you can install dlib (you need to previously create a virtual environment in conda using this command: conda create virenv):
+        conda install -c conda-forge dlib
+
+to use dblid you need to activate the anaconda virtual environment:
+        conta activate virenv   //virenv is the name of the virtual environment
+then you can run the code and include dlib library in your python projects, like in the examples
+        video that helps: https://www.youtube.com/watch?v=xXbouOlAyoo&ab_channel=packetcode 
+
+4. Then install the face_recognition library:
+        pip install face_recognition
+face_recognition repository:
+https://github.com/ageitgey/face_recognition
+
+A great guide: 
+https://www.mygreatlearning.com/blog/face-recognition/
+

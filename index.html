@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+                        <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+                        <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+                        <!-- Webcam.js -->
+    <script src="webcamjs-master/webcam.min.js"></script>
+
+    <title>Reconocimiento Facial</title>
+
+</head>
+<body>  
+    <header>Bienvenido</header>
+    <br>
+
+    <div class="formContainer">
+        <!-- Contenedor para la webcam -->
+        <p id="textoConfirmacion" style="display: none;">Imagen enviada</p>
+
+        <br> <div class="webcamContainer">
+            <div id="webcam"></div> <br>
+            <button id="tomarFoto" class="tomarFoto" onclick="tomarFoto()"></button>
+        </div> <br>
+        <br>
+        <!-- Botones de confirmar u otra foto -->
+        <button id="confirmar" onclick="confirmar()" style="display: none;">Confirmar</button>
+        <button id="otra" onclick="otra()" style="display: none;">Tomar otra</button>
+        <br>
+
+        <form action="subirImagen.php" method="post" enctype="multipart/form-data">
+            Nombre: <br> 
+            <input type="text" name="nombre"> <br> <br>
+    
+            <label for="file">Imagen de su identificación oficial:</label> <br>
+            <input type="file" name="imgIdentificacion" id="imgIdentificacion"><br><br>
+    
+            <input type="hidden" name="imgWebcam" id="imgWebcam">
+    
+            <input type="submit" name="submit" value="Continuar">
+        </form>
+        
+        
+        
+
+    </div>
+    <br>
+
+    
+
+    <script>
+        var confirmarBut = document.getElementById("confirmar");
+        var otraBut = document.getElementById("otra");
+
+        Webcam.set({
+            width: 640,
+            height: 480,
+            image_format: 'jpeg',
+            jpeg_quality: 90
+        });
+
+        Webcam.attach( '#webcam' );
+
+        function tomarFoto(){
+
+            Webcam.freeze();
+
+            confirmarBut.style.display = "inline";
+            otraBut.style.display = "inline";
+        }
+
+        function confirmar(){
+            Webcam.snap(function(data_uri){
+                console.log(data_uri);
+                // document.getElementById("resultado").innerHTML = '<img src ="' + data_uri +'"/>';
+                document.getElementById("imgWebcam").setAttribute("value", data_uri);
+                // let xmlhttp = new XMLHttpRequest();
+                // xmlhttp.open('GET', 'subirWebcam.php?uri='+data_uri, true);
+                // xmlhttp.send();
+            });    
+
+            confirmarBut.style.display = "none";
+            otraBut.style.display = "none";
+
+            document.getElementById("textoConfirmacion").style.display = "block";
+        }
+
+        function otra(){
+            Webcam.unfreeze();
+
+            confirmarBut.style.display = "none";
+            otraBut.style.display = "none";
+        }
+        
+    </script>
+</body>
+</html>
